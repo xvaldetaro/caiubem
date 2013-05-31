@@ -1,0 +1,40 @@
+{% extends "home/base.html" %}
+{% block Title %}Fitdusa{% endblock %}
+{% block extrastyle %}
+fieldset {
+  float:left;
+  padding-left:2%;
+  padding-right:16%;
+}
+.rogue-text {
+  padding-top:2%;
+}
+{% endblock %}
+{% block Content %}
+      <div class="jumbotron">
+        <h1>Caiu bem!</h1>
+        <p class="lead muted">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <a href="#myModal" role="button" class="btn btn-large btn-info" data-toggle="modal">Registrar Agora!</a>
+      </div>
+{% endblock %}
+{% block Modals %}
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Registro de Usuário</h3>
+  </div>
+  <div class="modal-body well">
+    <form class="well" method="post" action="{% url "home:home" %}">{% csrf_token %}
+      <p class="muted">Digite seu email para que iniciemos o seu cadastro.</p>
+      <div class="controls">
+        <input class="span5" name="email" type="text" placeholder="Digite seu email" id="id_email">
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+    </form>
+
+</div>
+{% endblock %}

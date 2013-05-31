@@ -1,0 +1,33 @@
+{% extends "store/base.html" %}
+{% block Title %}Fitdusa shop{% endblock %}
+{% block Content %}
+<div class="container-narrow">
+  <hr>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Foto</th>
+        <th>Produto</th>
+        <th>Pontos</th>
+        <th class="hidden-phone">Disponíveis</th>
+        <th class="hidden-phone">Loja</th>
+        <th class="hidden-phone">Comprar</th>
+        <th class="visible-phone"><i class="icon-shopping-cart"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for product in product_list %}
+      <tr>
+        <td><i class="icon-camera"></i></td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td class="hidden-phone">{{ product.stock }}</td>
+        <td class="hidden-phone">{{ product.store }}</td>
+        <td><i class="icon-shopping-cart"></i></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <hr>
+</div>
+{% endblock %}

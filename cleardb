@@ -1,0 +1,3 @@
+sudo -u postgres dropdb caiubem
+sudo -u postgres createdb caiubem
+python manage.py syncdb

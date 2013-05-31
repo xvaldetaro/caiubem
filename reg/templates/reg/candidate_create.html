@@ -1,0 +1,141 @@
+{% extends "reg/base.html" %}
+{% block Title %}Novo candidato{% endblock %}
+{% block Content %}
+<form method="post">{% csrf_token %}
+    <h1 class="form-signin-heading">Registro de Candidato</h1>
+    <div class="form-horizontal row">
+    	<div class="span6">
+    		<legend>Dados Pessoais</legend>
+	    	<div class="control-group">
+			    <label class="control-label" for="id_first_name">{{ candidate.first_name.label }}</label>
+			    <div class="controls">
+				    <input class="input-medium" type="text" name="first_name" id="id_first_name"
+				    		value="{{ candidate.first_name.value|default_if_none:"" }}">
+	    		</div>
+    		</div>
+    		<div class="control-group">
+	    		<label class="control-label" for="id_last_name">{{ candidate.last_name.label }}</label>
+			    <div class="controls">
+				    <input class="input-large" type="text" name="last_name" id="id_last_name"
+				    		value="{{ candidate.last_name.value|default_if_none:"" }}">
+	    		</div>
+		    </div>
+    		<div class="control-group">
+    			    <label class="control-label" for="id_email">{{ candidate.email.label }}</label>
+    			    <div class="controls">
+    				    <input class="input-medium" type="text" name="email" id="id_email"
+    				    		value="{{ candidate.email.value|default_if_none:"" }}">
+    				</div>
+    		</div>
+    		<div class="control-group">
+    			    <label class="control-label" for="id_dob">{{ candidate.dob.label }}</label>
+    			    <div class="controls">
+    				    <input class="input-small" type="text" name="dob" id="id_dob"
+    				    		value="{{ candidate.dob.value|default_if_none:"" }}">
+    				</div>
+    		</div>
+    		<div class="control-group">
+    			    <label class="control-label" for="id_cpf">{{ candidate.cpf.label }}</label>
+    			    <div class="controls">
+    				    <input class="input-small" type="text" name="cpf" id="id_cpf" 
+    				    		value="{{ candidate.cpf.value|default_if_none:"" }}">
+    				</div>
+    		</div>
+    		<div class="control-group">
+    			    <label class="control-label" for="id_sex">{{ candidate.sex.label }}</label>
+    			    <div class="controls">
+    				    <select class="input-small" name="sex" id="id_sex">
+    				    	<option value="">----------</option>
+						    <option value="M">Masculino</option>
+						    <option value="M">Feminino</option>
+    				    </select>
+    				</div>
+    		</div>
+	    </div>
+	    <div class="span5">
+	    	<legend>Endereço</legend>
+	    	<div class="control-group">
+	    		    <label class="control-label" for="id_city">{{ address.city.label }}</label>
+	    		    <div class="controls">
+	    			    <input class="input-medium" type="text" name="city" id="id_city"
+	    			    		value="{{ address.city.value|default_if_none:"" }}">
+	    			</div>
+	    	</div>
+	    	<div class="control-group">
+	    		    <label class="control-label" for="id_address_line1">{{ address.address_line1.label }}</label>
+	    		    <div class="controls">
+	    			    <input class="input-medium" type="text" name="address_line1" id="id_address_line1"
+	    			    		value="{{ address.address_line1.value|default_if_none:"" }}">
+	    			</div>
+	    	</div>
+	    	<div class="control-group">
+	    		    <label class="control-label" for="id_address_line2">{{ address.address_line2.label }}</label>
+	    		    <div class="controls">
+	    			    <input class="input-medium" type="text" name="address_line2" id="id_address_line2"
+	    			    		value="{{ address.address_line2.value|default_if_none:"" }}">
+	    			</div>
+	    	</div>
+	    	<div class="control-group">
+	    		    <label class="control-label" for="id_cep">{{ address.cep.label }}</label>
+	    		    <div class="controls">
+	    			    <input class="input-medium" type="text" name="cep" id="id_cep"
+	    			    		value="{{ address.cep.value|default_if_none:"" }}">
+	    			</div>
+	    	</div>
+	    </div>
+    </div>
+    <br>
+    <div class="row">
+    	<div class="span8">
+    		<legend>Preferências de Compras</legend>
+    	</div>
+	</div>
+	<div class="row">
+		<div class="span3">
+			<label class="checkbox">
+				<input type="checkbox" id="id_footwear" name="footwear"> {{ prefs.footwear.label }}
+			</label>
+			<label class="checkbox">
+				<input type="checkbox" id="id_purse" name="purse"> {{ prefs.purse.label }}
+			</label>
+			<label class="checkbox">
+				<input type="checkbox" id="id_lingerie" name="lingerie"> {{ prefs.lingerie.label }}
+			</label>
+			<label class="checkbox">
+				<input type="checkbox" id="id_casualwear" name="casualwear"> {{ prefs.casualwear.label }}
+			</label>
+			<label class="checkbox">
+				<input type="checkbox" id="id_jewelry" name="jewelry"> {{ prefs.jewelry.label }}
+			</label>	
+		</div>
+		<div class="span3 offset1">
+			<label class="checkbox">
+				<input type="checkbox" id="id_jeans" name="jeans"> {{ prefs.jeans.label }}
+			</label>
+			<label class="checkbox">
+				<input type="checkbox" id="id_socialwear" name="socialwear"> {{ prefs.socialwear.label }}
+			</label>
+			<label class="checkbox">
+				<input type="checkbox" id="id_underwear" name="underwear"> {{ prefs.underwear.label }}
+			</label>
+			<label class="checkbox">
+				<input type="checkbox" id="id_surfwear" name="surfwear"> {{ prefs.surfwear.label }}
+			</label>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="span5">
+			    <label for="id_other">{{ prefs.other.label }}</label>
+			    <textarea name="other" id="id_other"
+			    		value="{{ prefs.other.value|default_if_none:"" }}"></textarea>
+		</div>
+	</div>
+	<br><br>
+    <div class="row">
+    	<div class="">
+			<button type="submit" class="btn btn-large btn-primary">Enviar</button>
+		</div>
+    </div>
+    </form>
+{% endblock %}
