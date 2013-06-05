@@ -5,7 +5,7 @@ NUM_WORKERS=3
 USER=xande
 GROUP=xande
 source ./.src
-source ./venv/bin/activate
+source /home/ubuntu/venv/caiubem/bin/activate
 if [ "$1" == "" ]; then
   gunicorn_django -w $NUM_WORKERS \
     --user=$USER --group=$GROUP --log-level=debug
