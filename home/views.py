@@ -17,7 +17,7 @@ class PathMixin(object):
 		return super(PathMixin, self).get_context_data(**kwargs)
 
 class AboutView(PathMixin, TemplateView):
-	template_name = 'home/about.html'
+	template_name = 'home/base.html'
 
 class ContactView(PathMixin, TemplateView):
 	template_name = 'home/contact.html'

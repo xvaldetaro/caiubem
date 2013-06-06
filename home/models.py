@@ -16,7 +16,7 @@ class Address(TimeStampedModel):
 	cep = models.CharField(max_length=10, verbose_name=u'CEP')
 
 	def __unicode__(self):
-		return "%s - %s" % (address_line1, city)
+		return "%s - %s" % (self.address, self.city)
 
 
 class ShopPreferences(TimeStampedModel):
