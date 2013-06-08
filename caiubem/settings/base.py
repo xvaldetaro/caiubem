@@ -136,8 +136,6 @@ INSTALLED_APPS = (
     'home',
     'store',
     'xeneric',
-    #plugins
-    'crispy_forms',
 )
 
 # A sample logging configuration. The only tangible logging
