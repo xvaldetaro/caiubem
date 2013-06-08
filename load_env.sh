@@ -1,5 +1,5 @@
 export PROJ_NAME=caiubem
-export PROJ_BASE_DIR=$HOME/apps/$PROJ_NAME
+export PROJ_BASE_DIR=$HOME/sites/$PROJ_NAME
 export VENV_DIR=$PROJ_BASE_DIR/venv
 export PROJ_DIR=$PROJ_BASE_DIR/$PROJ_NAME
 export LOG_DIR=$PROJ_BASE_DIR/logs
