@@ -8,8 +8,8 @@ PROJECT_NAME = 'caiubem'
 
 #get the project path from a setupo <proj_path>/<proj_module>/<settings_module>/<settings_file>
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-
-HOME_PATH = os.environ["HOME"]
+APP_DIR = os.path.dirname(PROJECT_ROOT)
+APPS_DIR = os.path.dirname(APP_DIR)
 
 DEBUG = True
 if os.environ["BUILD_MODE"] == "release":
@@ -73,7 +73,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '%s/apps/%s/static/' % (HOME_PATH,PROJECT_NAME)
+STATIC_ROOT = '%s/static/' % APP_DIR
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -81,8 +81,8 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    HOME_PATH+'/apps/common/static/boilerplate',
-    HOME_PATH+'/apps/common/static/common',
+    APPS_DIR+'/common/static/boilerplate',
+    APPS_DIR+'/common/static/common',
 )
 
 # List of finder classes that know how to find static files in
@@ -121,7 +121,7 @@ WSGI_APPLICATION = 'caiubem.wsgi.application'
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
-    HOME_PATH+'/apps/common/templates'
+    APPS_DIR+'/common/templates'
 )
 
 INSTALLED_APPS = (
