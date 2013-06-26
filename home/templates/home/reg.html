@@ -2,26 +2,29 @@
 {% block Title %}Fitdusa{% endblock %}
 {% block extrastyle %}
 fieldset {
-  float:left;
-  padding-right:14%;
+float:left;
+padding-right:14%;
 }
 .rogue-text {
-  padding-top:2%;
+padding-top:2%;
 }
 input[type="text"].errorinput{
-    color: #ff0000;
+color: #ff0000;
 }
 
 {% endblock %}
 {% block Content %}
-{{ message1 }}
-    <h3>Registro de Usuário</h3>
-    <div id="msg">
-     {% include "common/form_errors.html" with form=candidate %}
-     {% include "common/form_errors.html" with form=address %}
-     {% include "common/form_errors.html" with form=prefs %}
-    </div>
-    <form class="well" method="post" action="{% url "home:reg" %}">{% csrf_token %}
+<div class="container">
+  <div class="row-fluid">
+    <div class="offset2 span8">
+      {{ message1 }}
+      <h3>Registro de Usuário</h3>
+      <div id="msg">
+       {% include "common/form_errors.html" with form=candidate %}
+       {% include "common/form_errors.html" with form=address %}
+       {% include "common/form_errors.html" with form=prefs %}
+         </div>
+         <form class="well" method="post" action="{% url "home:reg" %}">{% csrf_token %}
       <div class="controls">
         <span class="span5 uneditable-input">{{ email }}</span>
         <input name="email" type="hidden" value={{ email }}>
@@ -48,19 +51,19 @@ input[type="text"].errorinput{
       </div>
       <p class="muted">Preferências de Produtos:</p>
       <div class="controls-row">
-          <fieldset>
-            {% include "common/cinput.html" with field=prefs.footwear %}
-            {% include "common/cinput.html" with field=prefs.purse %}
-            {% include "common/cinput.html" with field=prefs.lingerie %}
-            {% include "common/cinput.html" with field=prefs.casualwear %}
-            {% include "common/cinput.html" with field=prefs.jewelry %}
-          </fieldset>
-          <fieldset>
-            {% include "common/cinput.html" with field=prefs.jeans %}
-            {% include "common/cinput.html" with field=prefs.socialwear %}
-            {% include "common/cinput.html" with field=prefs.underwear %}
-            {% include "common/cinput.html" with field=prefs.surfwear %}
-          </fieldset>
+        <fieldset>
+          {% include "common/cinput.html" with field=prefs.footwear %}
+          {% include "common/cinput.html" with field=prefs.purse %}
+          {% include "common/cinput.html" with field=prefs.lingerie %}
+          {% include "common/cinput.html" with field=prefs.casualwear %}
+          {% include "common/cinput.html" with field=prefs.jewelry %}
+        </fieldset>
+        <fieldset>
+          {% include "common/cinput.html" with field=prefs.jeans %}
+          {% include "common/cinput.html" with field=prefs.socialwear %}
+          {% include "common/cinput.html" with field=prefs.underwear %}
+          {% include "common/cinput.html" with field=prefs.surfwear %}
+        </fieldset>
       </div>
       <div class="controls controls-row rogue-text">
         {% include "common/tinput.html" with class="span5" field=prefs.other %}
@@ -70,5 +73,8 @@ input[type="text"].errorinput{
         <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
         <button type="submit" class="btn btn-primary">Salvar</button>
       </div>
-    </form>
+        </form>
+    </div>
+</div>
+</div>
 {% endblock %}

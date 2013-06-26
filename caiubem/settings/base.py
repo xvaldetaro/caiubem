@@ -81,8 +81,8 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    APPS_DIR+'/common/static/boilerplate',
-    APPS_DIR+'/common/static/common',
+    APPS_DIR+'/common/static',
+    APPS_DIR+'/common/static',
 )
 
 # List of finder classes that know how to find static files in

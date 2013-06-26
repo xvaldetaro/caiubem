@@ -1,21 +1,78 @@
 {% extends "home/base.html" %}
-{% block Title %}Fitdusa{% endblock %}
-{% block Content %}
-      <div class="jumbotron">
-        <h1>Caiu Bem</h1>
-      </div>
-      <hr>
-      <div class="row-fluid marketing">
-        <div class="span6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+{% block Title %}Caiu Bem, o seu clube de compras{% endblock %}
+{% block extrastyle %}
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-
-      </div>
+{% load staticfiles %}
+.main-header {
+    background-image: url({% static 'home/img/gago2cropw.jpg' %});
+  }
+fieldset {
+float:left;
+padding-left:2%;
+padding-right:16%;
+}
+.rogue-text {
+padding-top:2%;
+}
 {% endblock %}
+{% block Content %}
+<div class="hidden-phone main-header text-center">
+  <h1>Caiu bem!</h1>
+  <p>This is a template for a simple marketing or informational website.</p>
+  <p><a class="btn btn-inverse btn-large">Inscrever-se &raquo;</a></p>
+</div>
+<div class="visible-phone phone-header text-center">
+  <h1>Caiu bem!</h1>
+  <p>This is a template for a simple marketing or informational website.</p>
+  <p><a href="#myModal" role="button" class="btn btn-inverse btn-large" data-toggle="modal">Inscrever-se &raquo;</a></p>
+</div>
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="faq span4 text-center">
+      <img src="{% static 'home/img/images.png' %}" alt="" class="img-circle">
+      <h2>Quem somos</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+    </div>
+    <div class="faq span4 text-center">
+      <img src="{% static 'home/img/images.png' %}" alt="" class="img-circle">
+      <h2>Quem são nossos clientes</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+    </div>
+    <div class="faq span4 text-center">
+      <img src="{% static 'home/img/images.png' %}" alt="" class="img-circle">
+      <h2>Porque você vai curtir</h2>
+      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    </div>
+  </div>
+
+  <hr class="spaceline">
+  <div class="row-fluid">
+    <div class="span5"><iframe width="100%" height="315" src="http://www.youtube.com/embed/xK8gqTJQGUQ" frameborder="0" allowfullscreen></iframe></div>
+    <div class="faq span7">
+      <h2>Conheça sua nova loja favorita.</h2>
+      <p>Veja como nosso novo conceito...Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, </p>
+    </div>
+  </div>
+  {% endblock %}
+  {% block Modals %}
+  <!-- Modal -->
+  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Registro de Usuário</h3>
+    </div>
+    <div class="modal-body well">
+      <form class="well" method="post" action="{% url "home:home" %}">{% csrf_token %}
+        <p class="muted">Digite seu email para que iniciemos o seu cadastro.</p>
+        <div class="controls">
+          <input class="span5" name="email" type="text" placeholder="Digite seu email" id="id_email">
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+      </form>
+
+    </div>
+    {% endblock %}
