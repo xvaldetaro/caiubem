@@ -17,63 +17,65 @@ color: #ff0000;
 <div class="container">
   <div class="row-fluid">
     <div class="offset2 span8">
-      {{ message1 }}
-      <h3>Registro de Usuário</h3>
-      <div id="msg">
-       {% include "common/form_errors.html" with form=candidate %}
-       {% include "common/form_errors.html" with form=address %}
-       {% include "common/form_errors.html" with form=prefs %}
-         </div>
-         <form class="well" method="post" action="{% url "home:reg" %}">{% csrf_token %}
-      <div class="controls">
-        <span class="span5 uneditable-input">{{ email }}</span>
-        <input name="email" type="hidden" value={{ email }}>
+      <div class="row-fluid">
+        {{ message1 }}
+        <h3>Registro de Usuário</h3>
+        <div id="msg">
+         {% include "common/form_errors.html" with form=candidate %}
+         {% include "common/form_errors.html" with form=address %}
+         {% include "common/form_errors.html" with form=prefs %}
+           </div>
+           <form class="well" method="post" action="{% url "home:reg" %}">{% csrf_token %}
+        <div class="controls">
+          <span class="span8 uneditable-input">{{ email }}</span>
+          <input name="email" type="hidden" value={{ email }}>
+        </div>
+        <div class="controls controls-row">
+          {% include "common/tinput.html" with class="span2" field=candidate.first_name %}
+          {% include "common/tinput.html" with class="span4" field=candidate.last_name %}
+        </div>
+        <div class="controls controls-row">
+          {% include "common/tinput.html" with class="span2" field=candidate.dob %}
+          {% include "common/tinput.html" with class="span2" field=candidate.cpf %}
+          <select class="span2" name="sex" id="id_sex">
+            <option {% if candidate.sex.value == "" %}selected="selected"{% endif %} value="">Sexo</option>
+            <option {% if candidate.sex.value == "M" %}selected="selected"{% endif %} value="M">Masculino</option>
+            <option {% if candidate.sex.value == "F" %}selected="selected"{% endif %} value="F">Feminino</option>
+          </select>
+        </div>
+        <div class="controls controls-row">
+          {% include "common/tinput.html" with class="span5" field=address.address %}
+        </div>
+        <div class="controls controls-row">
+          {% include "common/tinput.html" with class="span4" field=address.city %}
+          {% include "common/tinput.html" with class="span2" field=address.cep %}
+        </div>
+        <p class="muted">Preferências de Produtos:</p>
+        <div class="controls-row">
+          <fieldset>
+            {% include "common/cinput.html" with field=prefs.footwear %}
+            {% include "common/cinput.html" with field=prefs.purse %}
+            {% include "common/cinput.html" with field=prefs.lingerie %}
+            {% include "common/cinput.html" with field=prefs.casualwear %}
+            {% include "common/cinput.html" with field=prefs.jewelry %}
+          </fieldset>
+          <fieldset>
+            {% include "common/cinput.html" with field=prefs.jeans %}
+            {% include "common/cinput.html" with field=prefs.socialwear %}
+            {% include "common/cinput.html" with field=prefs.underwear %}
+            {% include "common/cinput.html" with field=prefs.surfwear %}
+          </fieldset>
+        </div>
+        <div class="controls controls-row rogue-text">
+          {% include "common/tinput.html" with class="span5" field=prefs.other %}
+        </div>
+        <hr>
+        <div class="form-actions">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+          </form>
       </div>
-      <div class="controls controls-row">
-        {% include "common/tinput.html" with class="span2" field=candidate.first_name %}
-        {% include "common/tinput.html" with class="span4" field=candidate.last_name %}
-      </div>
-      <div class="controls controls-row">
-        {% include "common/tinput.html" with class="span2" field=candidate.dob %}
-        {% include "common/tinput.html" with class="span2" field=candidate.cpf %}
-        <select class="span2" name="sex" id="id_sex">
-          <option {% if candidate.sex.value == "" %}selected="selected"{% endif %} value="">Sexo</option>
-          <option {% if candidate.sex.value == "M" %}selected="selected"{% endif %} value="M">Masculino</option>
-          <option {% if candidate.sex.value == "F" %}selected="selected"{% endif %} value="F">Feminino</option>
-        </select>
-      </div>
-      <div class="controls controls-row">
-        {% include "common/tinput.html" with class="span5" field=address.address %}
-      </div>
-      <div class="controls controls-row">
-        {% include "common/tinput.html" with class="span4" field=address.city %}
-        {% include "common/tinput.html" with class="span2" field=address.cep %}
-      </div>
-      <p class="muted">Preferências de Produtos:</p>
-      <div class="controls-row">
-        <fieldset>
-          {% include "common/cinput.html" with field=prefs.footwear %}
-          {% include "common/cinput.html" with field=prefs.purse %}
-          {% include "common/cinput.html" with field=prefs.lingerie %}
-          {% include "common/cinput.html" with field=prefs.casualwear %}
-          {% include "common/cinput.html" with field=prefs.jewelry %}
-        </fieldset>
-        <fieldset>
-          {% include "common/cinput.html" with field=prefs.jeans %}
-          {% include "common/cinput.html" with field=prefs.socialwear %}
-          {% include "common/cinput.html" with field=prefs.underwear %}
-          {% include "common/cinput.html" with field=prefs.surfwear %}
-        </fieldset>
-      </div>
-      <div class="controls controls-row rogue-text">
-        {% include "common/tinput.html" with class="span5" field=prefs.other %}
-      </div>
-      <hr>
-      <div class="form-actions">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
-        <button type="submit" class="btn btn-primary">Salvar</button>
-      </div>
-        </form>
     </div>
 </div>
 </div>
