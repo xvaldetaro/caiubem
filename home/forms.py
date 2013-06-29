@@ -6,8 +6,6 @@ from django.forms import ValidationError
 from django.forms.fields import CharField
 from django.utils.translation import ugettext_lazy as _
 from datetime import date
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Div, Field
 import re
 
 def DV_maker(v):
