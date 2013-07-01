@@ -9,7 +9,7 @@ PROJECT_NAME = 'caiubem'
 #get the project path from a setupo <proj_path>/<proj_module>/<settings_module>/<settings_file>
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 APP_DIR = os.path.dirname(PROJECT_ROOT)
-APPS_DIR = os.path.dirname(APP_DIR)
+APPS_DIR = os.environ["APPS_DIR"]
 
 DEBUG = True
 if os.environ["BUILD_MODE"] == "release":
