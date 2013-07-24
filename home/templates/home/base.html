@@ -72,14 +72,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Logo</a>
-        <div class="nav-collapse collapse pull-right">
-          <ul class="nav">
-            <li class="{{ path|active:'home/?$|^/$' }}"><a href="{% url 'home:home' %}">Inicial</a></li>
-            <li class="{{ path|active:'about/?$' }}"><a href="{% url 'home:about' %}">Sobre</a></li>
-            <li class="{{ path|active:'contact/?$' }}"><a href="{% url 'home:contact' %}">Contato</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+        <a class="brand" href="{% url 'home:home' %}">Logo</a>
       </div>
     </div>
   </div>
