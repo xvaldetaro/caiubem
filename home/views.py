@@ -55,7 +55,7 @@ class RegView(PathMixin, MultiFormView):
 			candidate.preferences = prefs
 			candidate.save()
 			send_mail(u'Confirmação de cadastro fitdusa', u'Corpo da mensagem.', 
-				u'Não Responder <cadastro@dominiodusa123456.com>',
+				u'Não Responder <cadastro@caiubem.com.br>',
 				[candidate.email], fail_silently=False)
 			messages.success(self.request, "Você foi cadastrado com sucesso!")
 			return super(RegView, self).forms_valid(forms)

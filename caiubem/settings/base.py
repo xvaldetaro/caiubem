@@ -12,8 +12,6 @@ APP_DIR = os.path.dirname(PROJECT_ROOT)
 APPS_DIR = os.environ["APPS_DIR"]
 
 DEBUG = True
-if os.environ["BUILD_MODE"] == "release":
-    DEBUG = False
   
 TEMPLATE_DEBUG = DEBUG
 
