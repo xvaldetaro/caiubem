@@ -9,7 +9,6 @@ urlpatterns = patterns('',
     url(r'^/?$', HomeView.as_view()),
     url(r'^home/', include('home.urls', namespace='home')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^reg/', include('reg.urls', namespace='reg')),
     url(r'^store/', include('store.urls', namespace='store')),
 )
 

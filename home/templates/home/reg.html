@@ -27,7 +27,7 @@ color: #ff0000;
            </div>
            <form class="well" method="post" action="{% url "home:reg" %}">{% csrf_token %}
         <div class="controls">
-          <span class="span8 uneditable-input">{{ email }}</span>
+          <span class="span7 uneditable-input">{{ email }}</span>
           <input name="email" type="hidden" value={{ email }}>
         </div>
         <div class="controls controls-row">
@@ -54,16 +54,9 @@ color: #ff0000;
         <div class="controls-row">
           <fieldset>
             {% include "common/cinput.html" with field=prefs.footwear %}
-            {% include "common/cinput.html" with field=prefs.purse %}
-            {% include "common/cinput.html" with field=prefs.lingerie %}
             {% include "common/cinput.html" with field=prefs.casualwear %}
-            {% include "common/cinput.html" with field=prefs.jewelry %}
-          </fieldset>
-          <fieldset>
-            {% include "common/cinput.html" with field=prefs.jeans %}
             {% include "common/cinput.html" with field=prefs.socialwear %}
             {% include "common/cinput.html" with field=prefs.underwear %}
-            {% include "common/cinput.html" with field=prefs.surfwear %}
           </fieldset>
         </div>
         <div class="controls controls-row rogue-text">

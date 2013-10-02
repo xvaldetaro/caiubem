@@ -20,12 +20,12 @@ class Address(TimeStampedModel):
 
 
 class ShopPreferences(TimeStampedModel):
-	footwear = models.BooleanField(verbose_name=u'Calçado')
-	casualwear = models.BooleanField(verbose_name=u'Roupa casual')
-	socialwear = models.BooleanField(verbose_name=u'Roupa social')
+	footwear = models.BooleanField(verbose_name=u'Meia')
+	casualwear = models.BooleanField(verbose_name=u'Camisa Casual')
+	socialwear = models.BooleanField(verbose_name=u'Camisa Social')
 	purse = models.BooleanField(verbose_name=u'Bolsa')
 	jewelry = models.BooleanField(verbose_name=u'Bijuteria')
-	underwear = models.BooleanField(verbose_name=u'Meias e roupas intimas')
+	underwear = models.BooleanField(verbose_name=u'Cueca')
 	lingerie = models.BooleanField(verbose_name=u'Lingerie')
 	jeans = models.BooleanField(verbose_name=u'Jeans')
 	surfwear = models.BooleanField(verbose_name=u'Surfwear')
